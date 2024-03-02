@@ -1,6 +1,1 @@
 current date, width of the tire, aspect ratio of the tire, diameter of the wheel, volume of the tire
-2024-03-02, 185, 50, 14, 24.09
-2024-03-02, 205, 60, 15, 39.92
-2024-03-02, 180, 33, 13, 13.09
-2024-03-02, 155, 30, 12, 7.95
-
