@@ -12,6 +12,11 @@ def main():
     append_random_numbers(numbers, 3)
     print(f'numbers {numbers}')
     
+
+
+
+
+
     words=[]
 
     append_random_words(words)
@@ -20,10 +25,23 @@ def main():
     append_random_words(words, 5)
     print(f'words {words}')
 
+
+
+
+
+
+
+
+
 def append_random_numbers(numbers_list, quantity=1):
     for x in range(quantity):
         quantity=round(random.uniform(0, 100), 1)
         numbers_list.append(quantity)
+
+
+
+
+        
 
 def append_random_words(words_list, quantity=1):
     # words=['baseball', 'football', 'tennis']

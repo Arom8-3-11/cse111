@@ -1,25 +1,40 @@
 from formula import parse_formula
 import math
 def main():
+    print()
     # Get a chemical formula for a molecule from the user.
-    formula=str(input('What is the chemical formula for a molecule? ')).capitalize()
+    formula=input('What is the chemical formula for a molecule? ').capitalize()
+    print()
 
     # Get the mass of a chemical sample in grams from the user.
     mass=float(input('What is the mass of the chemical sample in grams? '))
-    
+    print()
+
     # Call the make_periodic_table function and store the periodic table in a variable.
     compound_list = make_periodic_table()
-    
+
     # Call the parse_formula function to convert the chemical formula given by the user to a compound list that stores element symbols and the quantity of atoms of each element in the molecule.
-    parse_formula(formula)
-    
+    parse_formula(formula, compound_list)
+
+    if formula in compound_list:
+        symbol= compound_list[formula]
+        print(symbol)
+
+
+
+
     # Call the compute_molar_mass function to compute the molar mass of the molecule from the compound list.
-    molar_mass = compute_molar_mass(compound_list)
-    
+    molar_mass = compute_molar_mass(formula, compound_list)
+
+
+
+
+
+
     # Compute the number of moles in the sample.
     moles= mass/molar_mass
 
-    # Print the molar mass.
+    # # Print the molar mass.
     print(f'{molar_mass} grams/mole')
 
     # Print the number of moles.
@@ -145,20 +160,24 @@ def compute_molar_mass(symbol_quantity_list, periodic_table_dict):
     For example, if symbol_quantity_list is [["H", 2], ["O", 1]], this function will calculate and return atomic_mass("H") * 2 + atomic_mass("O") * 1 1.00794 * 2 + 15.9994 * 1 18.01528 """
     # Do the following for each inner list in the compound symbol_quantity_list:
         # Separate the inner list into symbol and quantity.
-    symbol_quantity_list=parse_formula("", "")
-
+    parse_formula(symbol_quantity_list, periodic_table_dict)
+    
         # Get the atomic mass for the symbol from the dictionary.
-    atomic_mass=symbol_quantity_list[1]
+    if symbol_quantity_list in periodic_table_dict:
+        symbol= periodic_table_dict[symbol_quantity_list]
+        # atomic_mass=
+        print(symbol)
 
         # Multiply the atomic mass by the quantity.
-    calc= atomic_mass * QUANTITY_INDEX
+    # total= atomic_mass * quantity
 
         # Add the product into the total molar mass.
-    molar_mass = calc + calc
+    # total += total
+    # molar_mass = total
     
 
     # Return the total molar mass.
-    return molar_mass
+    # return molar_mass
 
 if __name__ == "__main__":
     main()
